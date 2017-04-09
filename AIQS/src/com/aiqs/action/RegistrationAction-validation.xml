@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+<field name="NewUser.firstName">
+	<field-validator type="requiredstring">
+	<message>Enter First Name</message>
+	</field-validator>
+</field>
+<field name="NewUser.lastName">
+	<field-validator type="requiredstring">
+	<message>Enter Last Name</message>
+	</field-validator>
+</field>
+<field name="NewUser.age">
+<field-validator type="required" short-circuit="true">
+	<message>Select Age</message>
+	</field-validator>
+</field>
+<field name="NewUser.gender">
+	<field-validator type="requiredstring">
+	<message>Enter Gender</message>
+	</field-validator>
+</field>
+<field name="NewUser.address">
+	<field-validator type="requiredstring">
+	<message>Enter Address</message>
+	</field-validator>
+</field>
+<field name="NewUser.emailId">
+<field-validator type="requiredstring" short-circuit="true">
+	<message>Enter valid Email-ID</message>
+	</field-validator>
+	<field-validator type="email">
+	<message>Enter valid Email-ID</message>
+	</field-validator>
+</field>
+<field name="NewUser.phoneNo">
+	<field-validator type="required" short-circuit="true">
+	<message>Enter valid phone number</message>
+	</field-validator>
+	<field-validator type="regex" short-circuit="true">
+	<param name="fieldname">NewUser.phoneNo</param>
+	<param name="expression"><![CDATA[\d{10}]]></param>
+	<message>Phone number must be 10 digit</message>
+	</field-validator>
+</field>
+<field name="NewUser.password">
+	<field-validator type="requiredstring">
+	<message>Enter password</message>
+	</field-validator>
+</field>
+<field name="NewUser.rtp">
+	<field-validator type="requiredstring" short-circuit="true">
+	<message>Re-Type password</message>
+	</field-validator>
+	<field-validator type="expression" short-circuit="true">
+	<param name="fieldname">NewUser.rtp</param>
+	<param name="expression"><![CDATA[NewUser.password.equals(NewUser.rtp)]]></param>
+	<message>Correctly re-type password</message>
+	</field-validator>
+</field>
+</validators>

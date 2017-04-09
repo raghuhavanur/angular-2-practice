@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="AIQS" extends="struts-default" namespace="/">
+	<action name="getInputForm" class="com.aiqs.action.RegistrationAction" method="getInputForm">
+		 <result name="success">registration.jsp</result>
+		 <result name="input">registration.jsp</result>
+		 
+	</action>
+	<action name="register_user" class="com.aiqs.action.RegistrationAction" method="doRegister">
+		<result name="success">registration.jsp</result>
+		<result name="input">registration.jsp</result>
+	</action>
+	<action name="getSigninForm" class="com.aiqs.action.SignInAction" method="getInputForm">
+		<result name="success">signin.jsp</result>
+	</action>
+	<action name="user_signin" class="com.aiqs.action.SignInAction" method="doSignin">
+		<result name="success">${UrlToRedirect}</result>
+		<result name="error">signin.jsp</result>
+	</action>
+	<action name="Signout" class="com.aiqs.action.SignOutAction" method="doSignOut">
+		<result name="success">default.jsp</result>
+		<result name="error">default.jsp</result>
+	</action>
+
+<!-- Driver action -->
+
+	
+	<action name="getDriverList" class="com.aiqs.action.DriverAction" method="getDriverList">
+		<result name="success">driver_manager.jsp</result>
+		<result name="input">driver_manager.jsp</result>
+	</action>
+	<action name="addDriver" class="com.aiqs.action.DriverAction" method="getDriverInputForm">
+		<result name="success">driver_input.jsp</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+	<action name="saveNewDriver" class="com.aiqs.action.DriverAction" method="addNewDriver">
+		<result name="success" type="redirect">getDriverList</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+	<action name="getTheDriverDetails" class="com.aiqs.action.DriverAction" method="getTheDriverDetails">
+		<result name="success">driver_input.jsp</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+	<action name="updateDriver" class="com.aiqs.action.DriverAction" method="updateDriver">
+		<result name="success">user_home.jsp</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+	<action name="deleteDriver" class="com.aiqs.action.DriverAction" method="deleteDriver">
+		<result name="success">user_home.jsp</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+	
+<!-- Change password action  -->
+
+	<action name="get_password_update_form" class="com.aiqs.action.PasswordUpdaterAction" method="getInputForm">
+		<result name="success">change_password.jsp</result>
+		<result name="error">change_password.jsp</result>
+	</action>
+	<action name="change_password" class="com.aiqs.action.PasswordUpdaterAction" method="changePassword">
+		<result name="success">change_password.jsp</result>
+		<result name="error">change_password.jsp</result>
+	</action>
+
+
+<!-- Quote Manager for AIQS User -->
+<action name="buy_quote" class="com.aiqs.action.UserAction" method="setQuoteAttributes">
+		<result name="success">InsuranceProvider.jsp</result>
+		<result name="error">SignIn.jsp</result>
+	</action>
+	<action name="ins_provide" class="com.aiqs.action.UserAction" method="doBuyInsQuote">
+		<result name="success">Payment.jsp</result>
+		<result name="error">AIQSUser.jsp</result>
+	</action>
+	<action name="payment" class="com.aiqs.action.UserAction" method="doProceed">
+		<result name="success">QuoteInformation.jsp</result>
+		<result name="error">AIQSUser.jsp</result>
+	</action>
+	<action name="creditCard" class="com.aiqs.action.UserAction" method="doPayment">
+		<result name="success">QuoteInformation.jsp</result>
+		<result name="error">AIQSUser.jsp</result>
+	</action>
+	
+	<action name="subPay" class="com.aiqs.action.UserAction" method="doPay">
+		<result name="success">CreditCard.jsp</result>
+		<result name="error">SignIn.jsp</result>
+	</action>
+	
+	<action name="getQuoteDetails" class="com.aiqs.action.UserAction" method="getQuote">
+		<result name="success">PolicyInformation.jsp</result>
+		<result name="input">driver_input.jsp</result>
+	</action>
+</package>
+</struts>

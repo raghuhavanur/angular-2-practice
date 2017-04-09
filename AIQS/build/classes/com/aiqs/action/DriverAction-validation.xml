@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+<field name="DriverDetails.quoteId">
+	<field-validator type="requiredstring">
+	<message>Enter QuoteID</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.firstName">
+	<field-validator type="requiredstring">
+	<message>Enter First Name</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.lastName">
+	<field-validator type="requiredstring">
+	<message>Enter Last Name</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.age">
+<field-validator type="required" short-circuit="true">
+	<message>Enter Age</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.gender">
+	<field-validator type="requiredstring">
+	<message>Enter Gender</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.address">
+	<field-validator type="requiredstring">
+	<message>Enter Address</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.emailId">
+<field-validator type="requiredstring" short-circuit="true">
+	<message>Enter valid Email-ID</message>
+	</field-validator>
+	<field-validator type="email">
+	<message>Enter valid Email-ID</message>
+	</field-validator>
+</field>
+<field name="DriverDetails.phoneNo">
+	<field-validator type="requiredstring" short-circuit="true">
+	<message>Enter valid phone number</message>
+	</field-validator>
+	<field-validator type="regex" short-circuit="true">
+		<param name="fieldname">NewUser.phoneNo</param>
+		<param name="expression"><![CDATA[\d{10}]]></param>
+	<message>Phone number must be 10 digit</message>
+	</field-validator>
+</field>
+
+</validators>
